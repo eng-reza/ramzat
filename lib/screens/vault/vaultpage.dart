@@ -37,7 +37,7 @@ class _VaultPageState extends State<VaultPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Vault',
+          'حساب های کاربری',
         ),
       ),
       body: RefreshIndicator(
@@ -119,7 +119,7 @@ class _VaultPageState extends State<VaultPage> {
                                             child: Customemptywidget(
                                                 svgString: 'assets/empty.svg',
                                                 emptyString:
-                                                    'No Matched Password Found.'),
+                                                    'رمز عبور وارد شده تطابق ندارد'),
                                           )
                                         : Expanded(
                                             child: ListView.separated(
@@ -149,7 +149,7 @@ class _VaultPageState extends State<VaultPage> {
                             return Center(
                               child: Customemptywidget(
                                 svgString: 'assets/not_found.svg',
-                                emptyString: 'No Saved Password Found.',
+                                emptyString: 'رمز عبوری ذخیره نشده است',
                               ),
                             );
                           }

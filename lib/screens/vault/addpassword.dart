@@ -49,7 +49,7 @@ class _AddPasswordState extends State<AddPassword> {
       Navigator.pop(context);
     } else {
       const snackbar = SnackBar(
-        content: Text("Please enter all required fields."),
+        content: Text("لطفا تمامی فیلدهای ضروری را تکمیل نمایید"),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
@@ -72,14 +72,14 @@ class _AddPasswordState extends State<AddPassword> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Add Password',
+          'اضافه کردن رمز عبور',
         ),
         actions: [
           TextButton(
             onPressed: () {
               validate(context);
             },
-            child: const Text('Save'),
+            child: const Text('ذخیره'),
           )
         ],
       ),
@@ -93,8 +93,11 @@ class _AddPasswordState extends State<AddPassword> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 20,
+                ),
                 Text(
-                  'Fill in the details below to save the password',
+                  'جزئیات حساب را وارد نمایید',
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.grey,
                       ),
@@ -104,20 +107,20 @@ class _AddPasswordState extends State<AddPassword> {
                 ),
                 CustomInputField(
                   isRequired: true,
-                  fieldTitle: 'Title',
+                  fieldTitle: 'عنوان',
                   textCapitalization: TextCapitalization.sentences,
                   controller: titlecontroller,
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   validator:
-                      RequiredValidator(errorText: 'Title is required').call,
+                      RequiredValidator(errorText: 'عنوان ضروری است').call,
                 ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 CustomInputField(
                   isRequired: false,
-                  fieldTitle: 'URL',
+                  fieldTitle: 'آدرس وب سایت',
                   controller: urlcontroller,
                   keyboardType: TextInputType.url,
                   textInputAction: TextInputAction.next,
@@ -127,26 +130,25 @@ class _AddPasswordState extends State<AddPassword> {
                 ),
                 CustomInputField(
                   isRequired: true,
-                  fieldTitle: 'User Name',
+                  fieldTitle: 'نام کاربری',
                   controller: usernamecontroller,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.next,
                   validator:
-                      RequiredValidator(errorText: 'User Name is required')
-                          .call,
+                      RequiredValidator(errorText: 'نام کاربری ضروری است').call,
                 ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 CustomInputField(
                   isRequired: true,
-                  fieldTitle: 'Password',
+                  fieldTitle: 'رمز عبور',
                   controller: passwordcontroller,
                   obscureText: isObsecured,
                   keyboardType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.next,
                   validator:
-                      RequiredValidator(errorText: 'Password is required').call,
+                      RequiredValidator(errorText: 'رمز عبور ضروری است').call,
                   decoration: InputDecoration(
                     suffixIcon: InkWell(
                       child: Icon(
@@ -168,7 +170,7 @@ class _AddPasswordState extends State<AddPassword> {
                 ),
                 CustomInputField(
                   isRequired: false,
-                  fieldTitle: 'Notes',
+                  fieldTitle: 'یادداشت',
                   controller: notescontroller,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.done,
@@ -183,7 +185,7 @@ class _AddPasswordState extends State<AddPassword> {
                     onPressed: () {
                       validate(context);
                     },
-                    child: const Text('Save'),
+                    child: const Text('ذخیره'),
                   ),
                 )
               ],

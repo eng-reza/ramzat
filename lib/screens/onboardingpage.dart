@@ -58,6 +58,10 @@ class _OnBoardingSceenState extends State<OnBoardingSceen> {
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            // Text(
+                            //   'تست فونت وزیر',
+                            //   style: TextStyle(fontFamily: 'VazirBold'),
+                            // ),
                             SizedBox(
                               height: size.height * 0.07,
                             ),
@@ -123,8 +127,8 @@ class _OnBoardingSceenState extends State<OnBoardingSceen> {
                       );
                     },
                     buttontext: provider.currentIndex == contents.length - 1
-                        ? "Continue"
-                        : 'Next',
+                        ? "ادامه"
+                        : 'بعدی',
                   ),
                   SizedBox(
                     height: size.height * 0.01,
@@ -162,6 +166,7 @@ class OnBoardingContent {
   String image;
   String title;
   String description;
+
   OnBoardingContent({
     required this.image,
     required this.title,

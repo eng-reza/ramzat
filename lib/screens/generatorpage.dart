@@ -17,7 +17,7 @@ class GeneratorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Generator',
+          'سازنده رمز عبور',
         ),
       ),
       body: SingleChildScrollView(
@@ -77,8 +77,8 @@ class GeneratorPage extends StatelessWidget {
                             .watch<GeneratedPasswordProvider>()
                             .generatedpassword
                             .isEmpty
-                        ? 'Generate Password'
-                        : 'Regenerate Password'),
+                        ? 'رمز عبور را بساز'
+                        : 'مجددا رمز عبور را بساز'),
                 SizedBox(
                   height: size.height * 0.01,
                 ),
@@ -88,7 +88,7 @@ class GeneratorPage extends StatelessWidget {
                           .generatedpassword
                           .isEmpty
                       ? () => Utils(context)
-                          .showSnackBar(snackText: 'Please generate password')
+                          .showSnackBar(snackText: 'لطفا رمز عبور را بساز')
                       : () {
                           Clipboard.setData(
                             ClipboardData(
@@ -99,24 +99,24 @@ class GeneratorPage extends StatelessWidget {
                           ).then(
                             (value) {
                               return Utils(context).showSnackBar(
-                                  snackText: 'Password copied to clipboard');
+                                  snackText: 'پسورد در حافظه موقت ذخیره شد');
                             },
                           );
                         },
-                  buttontext: 'Copy Password',
+                  buttontext: 'رونوشت رمز عبور',
                 ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 Text(
-                  'Options',
+                  'مشخصات',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 _buildSiderOption(
-                  titletext: 'Length',
+                  titletext: 'طول',
                   hinttext: context
                       .watch<GeneratedPasswordProvider>()
                       .length
@@ -134,7 +134,7 @@ class GeneratorPage extends StatelessWidget {
                     context.read<GeneratedPasswordProvider>().uppercaseatoz =
                         value;
                   },
-                  hinttext: 'Uppercase ( A to Z )',
+                  hinttext: 'حروف بزرگ ( A to Z )',
                   titletext: 'A-Z',
                 ),
                 _buildSwitchOption(
@@ -144,7 +144,7 @@ class GeneratorPage extends StatelessWidget {
                     context.read<GeneratedPasswordProvider>().lowercaseatoz =
                         value;
                   },
-                  hinttext: 'Lowercase ( a to z )',
+                  hinttext: 'حروف کوچک ( a to z )',
                   titletext: 'a-z',
                 ),
                 _buildSwitchOption(
@@ -152,7 +152,7 @@ class GeneratorPage extends StatelessWidget {
                   onchanged: (value) {
                     context.read<GeneratedPasswordProvider>().number = value;
                   },
-                  hinttext: 'Numbers ( 0 to 9 )',
+                  hinttext: 'اعداد ( 0 to 9 )',
                   titletext: '0-9',
                 ),
                 _buildSwitchOption(
@@ -161,12 +161,12 @@ class GeneratorPage extends StatelessWidget {
                     context.read<GeneratedPasswordProvider>().specialchar =
                         value;
                   },
-                  hinttext: 'Characters ( !@#\$^&* )',
+                  hinttext: 'کاراکترها ( !@#\$^&* )',
                   titletext: '!@#\$^&*',
                 ),
                 _buildCounterOption(
                   enabled: context.watch<GeneratedPasswordProvider>().number,
-                  titletext: 'Mininum Numbers',
+                  titletext: 'کمترین تعداد اعداد',
                   hinttext: context
                       .watch<GeneratedPasswordProvider>()
                       .minimumnumbers
@@ -186,7 +186,7 @@ class GeneratorPage extends StatelessWidget {
                 _buildCounterOption(
                   enabled:
                       context.watch<GeneratedPasswordProvider>().specialchar,
-                  titletext: 'Mininum Special',
+                  titletext: 'کمترین حروف خاص',
                   hinttext: context
                       .watch<GeneratedPasswordProvider>()
                       .minimumspecial

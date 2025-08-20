@@ -12,6 +12,7 @@ import 'provider/themeprovider.dart';
 import 'screens/auth/login.dart';
 import 'screens/onboardingpage.dart';
 import 'services/databaseservice.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 //for future update versions v.2.0.0
 //TODO:: Add Custom Word in Password Generator
@@ -77,6 +78,17 @@ class MyApp extends StatelessWidget {
               // ),
               theme: lightTheme,
               darkTheme: darkTheme,
+              locale: const Locale('fa', 'IR'), // 👈 فارسی
+              supportedLocales: const [
+                Locale('fa', 'IR'),
+                Locale('en', 'US'), // اگه بعداً انگلیسی هم خواستی
+              ],
+              localizationsDelegates: const [
+                // برای پشتیبانی از ترجمه و تاریخ فارسی
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
               themeMode: context.watch<ThemeProvider>().themeMode,
               home: context.watch<OnBoardingProvider>().isBoardingCompleate
                   ? const LoginPage()

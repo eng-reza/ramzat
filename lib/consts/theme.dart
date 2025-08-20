@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Colors.deepOrange;
+const primaryColor = Colors.blue;
 
 const secondaryColor = Colors.deepOrangeAccent;
 // Use system fonts like Roboto for Android and SF Pro for iOS if you want platform-native experiences
 ThemeData lightTheme = ThemeData(
+  fontFamily: 'VazirMedium',
   visualDensity: VisualDensity.adaptivePlatformDensity,
   useMaterial3: true,
   brightness: Brightness.light,
@@ -37,10 +38,12 @@ ThemeData lightTheme = ThemeData(
   ),
   textTheme: TextTheme(
     bodyLarge: TextStyle(
+      fontFamily: 'VazirBold',
       color: Colors.black87,
       // fontSize: 24,
     ),
     bodyMedium: TextStyle(
+      fontFamily: 'VazirMedium',
       color: Colors.black87,
       //fontSize: 18,
     ),
@@ -49,10 +52,12 @@ ThemeData lightTheme = ThemeData(
       // fontSize: 12,
     ),
     titleLarge: TextStyle(
+      fontFamily: 'VazirBold',
       color: Colors.black87,
       // fontSize: 24,
     ),
     titleMedium: TextStyle(
+      fontFamily: 'VazirMedium',
       color: Colors.black87,
       //  fontSize: 18,
     ),
@@ -235,6 +240,7 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
+  fontFamily: 'VazirBold',
   visualDensity: VisualDensity.adaptivePlatformDensity,
   useMaterial3: true,
   brightness: Brightness.dark,
@@ -269,10 +275,12 @@ ThemeData darkTheme = ThemeData(
 
   textTheme: TextTheme(
     bodyLarge: TextStyle(
+      fontFamily: 'VazirBold',
       color: Colors.white,
       // fontSize: 24,
     ),
     bodyMedium: TextStyle(
+      fontFamily: 'VazirMedium',
       color: Colors.white,
       // fontSize: 18,
     ),
@@ -281,6 +289,7 @@ ThemeData darkTheme = ThemeData(
       // fontSize: 12,
     ),
     titleLarge: TextStyle(
+      fontFamily: 'VazirBold',
       color: Colors.white,
       // fontSize: 24,
     ),

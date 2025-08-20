@@ -18,13 +18,12 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController(text: 'Abc123456@');
   final GlobalKey<FormState> _loginformKey = GlobalKey<FormState>();
   final passwordValidator = MultiValidator([
-    RequiredValidator(errorText: 'Password is required'),
-    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
+    RequiredValidator(errorText: 'رمز عبور الزامی است'),
+    MinLengthValidator(8, errorText: 'حدافل 8 کاراکتر وارد نمایید'),
     PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-        errorText: 'Passwords must have at least one special character'),
+        errorText: 'حداقل یک کاراکتر خاص وارد نمایید'),
   ]);
-  final passwordMatchValidator =
-      MatchValidator(errorText: 'Passwords do not match');
+  final passwordMatchValidator = MatchValidator(errorText: 'عدم تطابق پسوردها');
 
   @override
   void dispose() {
@@ -63,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: size.height * 0.05,
                       ),
                       Text(
-                        'Enter master password and login',
+                        'رمز ورود به برنامه را وارد نمایید',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: Colors.grey.shade600,
                             ),
@@ -79,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                         validator: (val) => passwordMatchValidator
                             .validateMatch(val!, provider.masterpassword),
                         decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'رمز عبور',
                           suffixIcon: InkWell(
                             child: Icon(
                               provider.isObsecured
@@ -100,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                           FocusManager.instance.primaryFocus!.unfocus();
                           validate(passwordController.text.trim());
                         },
-                        buttontext: 'Login',
+                        buttontext: 'ورود',
                       ),
                       SizedBox(
                         height: size.height * 0.1,
@@ -112,9 +111,9 @@ class _LoginPageState extends State<LoginPage> {
                         height: size.height * 0.01,
                       ),
                       Text(
-                        'Once you save a password in NepPass. you\'ll '
-                        'always have it when you need it. logging in is fast '
-                        'and easy.',
+                        'با ذخیره اطلاعات کاربری در اپلیکیشن رمزات'
+                        ' نگرانی فراموشی یا مفقودی اطلاعات ورود به سایت ها و دیگر '
+                        'نرم افزارها برای همیشه رفع خواهد شد.',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: Colors.grey,
                             ),

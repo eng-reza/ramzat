@@ -20,13 +20,12 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   final GlobalKey<FormState> _changePasswordFormKey = GlobalKey<FormState>();
 
   final passwordValidator = MultiValidator([
-    RequiredValidator(errorText: 'Password is required'),
-    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
+    RequiredValidator(errorText: 'رمز عبور الزامی است'),
+    MinLengthValidator(8, errorText: 'حدافل 8 کاراکتر وارد نمایید'),
     PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-        errorText: 'Passwords must have at least one special character'),
+        errorText: 'حداقل یک کاراکتر خاص وارد نمایید'),
   ]);
-  final passwordMatchValidator =
-      MatchValidator(errorText: 'Passwords do not match');
+  final passwordMatchValidator = MatchValidator(errorText: 'عدم تطابق پسوردها');
 
   @override
   void dispose() {
@@ -45,7 +44,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text(
-            'Change Password',
+            'تغییر رمز عبور',
           ),
         ),
         body: SingleChildScrollView(
@@ -71,7 +70,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       textInputAction: TextInputAction.next,
                       validator: passwordValidator.call,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: 'رمز عبور',
                         suffixIcon: InkWell(
                           child: Icon(
                             provider.isObsecured
@@ -96,7 +95,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       validator: (val) => passwordMatchValidator.validateMatch(
                           val!, passwordController.text.trim()),
                       decoration: InputDecoration(
-                        labelText: 'Confirm Password',
+                        labelText: 'تکرار رمز عبور',
                         suffixIcon: InkWell(
                           child: Icon(
                             provider.isObsecured
@@ -116,7 +115,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       ontap: () {
                         validate();
                       },
-                      buttontext: 'Change Password',
+                      buttontext: 'تغییر رمز عبور',
                     ),
                   ],
                 ),

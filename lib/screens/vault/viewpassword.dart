@@ -54,7 +54,7 @@ class _ViewPasswordState extends State<ViewPassword> {
       Navigator.pop(context);
     } else {
       const snackbar = SnackBar(
-        content: Text("Please enter all required fields."),
+        content: Text("لطفا تمامی فیلدهای ضروری را نکمیل نمائید"),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
@@ -122,20 +122,20 @@ class _ViewPasswordState extends State<ViewPassword> {
               children: [
                 CustomInputField(
                   isRequired: true,
-                  fieldTitle: 'Title',
+                  fieldTitle: 'عنوان',
                   textCapitalization: TextCapitalization.sentences,
                   controller: titlecontroller,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.next,
                   validator:
-                      RequiredValidator(errorText: 'Title is required').call,
+                      RequiredValidator(errorText: 'عنوان ضروری است').call,
                 ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
                 CustomInputField(
                   isRequired: false,
-                  fieldTitle: 'URL',
+                  fieldTitle: 'آدرس وب',
                   controller: urlcontroller,
                   keyboardType: TextInputType.url,
                   textInputAction: TextInputAction.next,
@@ -145,13 +145,12 @@ class _ViewPasswordState extends State<ViewPassword> {
                 ),
                 CustomInputField(
                   isRequired: true,
-                  fieldTitle: 'User Name',
+                  fieldTitle: 'نام کاربری',
                   controller: usernamecontroller,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.next,
                   validator:
-                      RequiredValidator(errorText: 'User Name is required')
-                          .call,
+                      RequiredValidator(errorText: 'نام کاربری ضروری است').call,
                 ),
                 SizedBox(
                   height: size.height * 0.02,
@@ -159,7 +158,7 @@ class _ViewPasswordState extends State<ViewPassword> {
                 CustomInputField(
                   obscureText: isObsecured,
                   isRequired: true,
-                  fieldTitle: 'Password',
+                  fieldTitle: 'رمز عبور',
                   controller: passwordcontroller,
                   keyboardType: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.next,
@@ -167,7 +166,7 @@ class _ViewPasswordState extends State<ViewPassword> {
                     FocusScope.of(context).requestFocus(focus);
                   },
                   validator:
-                      RequiredValidator(errorText: 'Password is required').call,
+                      RequiredValidator(errorText: 'رمز عبور ضروری است').call,
                   decoration: InputDecoration(
                     suffixIcon: InkWell(
                       child: Icon(
@@ -201,7 +200,7 @@ class _ViewPasswordState extends State<ViewPassword> {
                     onPressed: () {
                       validate(context);
                     },
-                    child: const Text('Update'),
+                    child: const Text('بروز رسانی'),
                   ),
                 )
               ],
@@ -220,7 +219,7 @@ class _ViewPasswordState extends State<ViewPassword> {
     Clipboard.setData(
       ClipboardData(text: password),
     ).then((_) {
-      utils.showSnackBar(snackText: 'Password copied to clipboard');
+      utils.showSnackBar(snackText: 'پسورد در حافظه موقت ذخیره شد');
     });
   }
 }

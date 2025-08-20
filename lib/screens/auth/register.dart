@@ -22,13 +22,12 @@ class _RegisterPageState extends State<RegisterPage> {
   final confirmpasswordController = TextEditingController();
   final GlobalKey<FormState> _registerformKey = GlobalKey<FormState>();
   final passwordValidator = MultiValidator([
-    RequiredValidator(errorText: 'Password is required'),
-    MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
+    RequiredValidator(errorText: 'رمز عبور الزامی است'),
+    MinLengthValidator(8, errorText: 'حدافل 8 کاراکتر وارد نمایید'),
     PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-        errorText: 'Passwords must have at least one special character'),
+        errorText: 'حداقل یک کاراکتر خاص وارد نمایید'),
   ]);
-  final passwordMatchValidator =
-      MatchValidator(errorText: 'Passwords do not match');
+  final passwordMatchValidator = MatchValidator(errorText: 'عدم تطابق پسوردها');
 
   @override
   void dispose() {
@@ -70,7 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: size.height * 0.02,
                       ),
                       Text(
-                        'Register a master password',
+                        'ثبت رمز عبور اصلی برنامه',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: Colors.grey.shade600,
                             ),
@@ -88,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         textInputAction: TextInputAction.next,
                         validator: passwordValidator.call,
                         decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'رمز عبور',
                           suffixIcon: InkWell(
                             child: Icon(
                               provider.isObsecured
@@ -114,7 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             passwordMatchValidator.validateMatch(
                                 val!, passwordController.text.trim()),
                         decoration: InputDecoration(
-                          labelText: 'Confirm Password',
+                          labelText: 'تکرار رمز عبور',
                           suffixIcon: InkWell(
                             child: Icon(
                               provider.isObsecured
@@ -134,7 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ontap: () {
                           validate();
                         },
-                        buttontext: 'Register',
+                        buttontext: 'ذخیره',
                       ),
                       SizedBox(
                         height: size.height * 0.07,
@@ -144,10 +143,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: size.height * 0.01,
                       ),
                       Text(
-                        'Note that if the master password is lost,the stored '
-                        'data cannot be recovered because of the missing '
-                        'sync option. it is strongly recommended that you '
-                        'backup your  data at regular intervals.',
+                        'توجه داشته باشید در صورت فراموشی رمز عبور '
+                        'اصلی برنامه،امکان ریکاوری داده ها میسر نخواهد بود '
+                        'این سیاست در راستای حفظ حریم خصوصی و  '
+                        'عدم اشتراک گذاری داده های شما در سرورها تدوین شده است.',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: Colors.grey,
                             ),

@@ -16,7 +16,7 @@ class SettingsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('تنظیمات'),
       ),
       body: SafeArea(
         child: Padding(
@@ -26,7 +26,7 @@ class SettingsPage extends StatelessWidget {
           child: Column(
             children: [
               _buildListtile(
-                tiletitle: 'Change Password',
+                tiletitle: 'تغییر رمز برنامه',
                 iconData: Icons.password_outlined,
                 onTap: () {
                   Navigator.push(
@@ -74,7 +74,7 @@ class SettingsPage extends StatelessWidget {
                 height: size.height * 0.01,
               ),
               _buildListtile(
-                tiletitle: 'Theme',
+                tiletitle: 'تم برنامه',
                 iconData:
                     context.watch<ThemeProvider>().themeMode == ThemeMode.system
                         ? Icons.phonelink_setup_outlined
@@ -121,7 +121,7 @@ class SettingsPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Select Theme',
+              'انتخاب تم برنامه',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     color: Theme.of(context).primaryColor,
                   ),
@@ -138,7 +138,7 @@ class SettingsPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SelectionButtonWidget(
-                    buttontitle: 'System Theme',
+                    buttontitle: 'تم پیش فرض',
                     iconCondition: provider.themeMode == ThemeMode.system,
                     ontap: () {
                       provider.themeMode = ThemeMode.system;
@@ -150,7 +150,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   SelectionButtonWidget(
                     iconCondition: provider.themeMode == ThemeMode.light,
-                    buttontitle: 'Light Theme',
+                    buttontitle: 'تم روشن',
                     ontap: () {
                       provider.themeMode = ThemeMode.light;
                     },
@@ -161,7 +161,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   SelectionButtonWidget(
                     iconCondition: provider.themeMode == ThemeMode.dark,
-                    buttontitle: 'Dark Theme',
+                    buttontitle: 'تم تاریک',
                     ontap: () {
                       provider.themeMode = ThemeMode.dark;
                     },
